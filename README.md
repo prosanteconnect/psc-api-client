@@ -38,9 +38,9 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>io.swagger</groupId>
-  <artifactId>swagger-java-client</artifactId>
-  <version>1.0.0</version>
+  <groupId>fr.ans.psc</groupId>
+  <artifactId>psc-api-client</artifactId>
+  <version>3.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "io.swagger:swagger-java-client:1.0.0"
+compile "fr.ans.psc:psc-api-client:3.0.0"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/swagger-java-client-1.0.0.jar`
+* `target/psc-api-client-3.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -73,7 +73,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 import fr.ans.psc.ApiException;
 import fr.ans.psc.model.Ps;
-import io.swagger.client.*;
+import fr.ans.psc.client.*;
 import PsApi;
 
 public class PsApiExample {
@@ -90,10 +90,10 @@ public class PsApiExample {
     }
   }
 }
-import io.swagger.client.*;
-        import io.swagger.client.auth.*;
-        import io.swagger.client.model.*;
-        import io.swagger.client.api.PsApi;
+import fr.ans.psc.client.*;
+        import fr.ans.psc.client.auth.*;
+        import fr.ans.psc.client.model.*;
+        import fr.ans.psc.client.api.PsApi;
 
         import java.io.File;
         import java.util.*;
@@ -112,10 +112,10 @@ public class PsApiExample {
     }
   }
 }
-import io.swagger.client.*;
-        import io.swagger.client.auth.*;
-        import io.swagger.client.model.*;
-        import io.swagger.client.api.PsApi;
+import fr.ans.psc.client.*;
+        import fr.ans.psc.client.auth.*;
+        import fr.ans.psc.client.model.*;
+        import fr.ans.psc.client.api.PsApi;
 
         import java.io.File;
         import java.util.*;
@@ -134,10 +134,10 @@ public class PsApiExample {
     }
   }
 }
-import io.swagger.client.*;
-        import io.swagger.client.auth.*;
-        import io.swagger.client.model.*;
-        import io.swagger.client.api.PsApi;
+import fr.ans.psc.client.*;
+        import fr.ans.psc.client.auth.*;
+        import fr.ans.psc.client.model.*;
+        import fr.ans.psc.client.api.PsApi;
 
         import java.io.File;
         import java.util.*;
@@ -157,10 +157,10 @@ public class PsApiExample {
     }
   }
 }
-import io.swagger.client.*;
-        import io.swagger.client.auth.*;
-        import io.swagger.client.model.*;
-        import io.swagger.client.api.PsApi;
+import fr.ans.psc.client.*;
+        import fr.ans.psc.client.auth.*;
+        import fr.ans.psc.client.model.*;
+        import fr.ans.psc.client.api.PsApi;
 
         import java.io.File;
         import java.util.*;
