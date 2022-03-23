@@ -14,214 +14,248 @@ package fr.ans.psc.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import fr.ans.psc.model.Structure;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 /**
  * Situation d exercice
  */
 @Schema(description = "Situation d exercice")
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-03-23T09:52:58.504Z[GMT]")
 public class WorkSituation {
-  @JsonProperty("situId")
-  private String situId = null;
+    @JsonProperty("situId")
+    private String situId = null;
 
-  @JsonProperty("modeCode")
-  private String modeCode = null;
+    @JsonProperty("modeCode")
+    private String modeCode = null;
 
-  @JsonProperty("activitySectorCode")
-  private String activitySectorCode = null;
+    @JsonProperty("activitySectorCode")
+    private String activitySectorCode = null;
 
-  @JsonProperty("pharmacistTableSectionCode")
-  private String pharmacistTableSectionCode = null;
+    @JsonProperty("pharmacistTableSectionCode")
+    private String pharmacistTableSectionCode = null;
 
-  @JsonProperty("roleCode")
-  private String roleCode = null;
+    @JsonProperty("roleCode")
+    private String roleCode = null;
 
-  @JsonProperty("registrationAuthority")
-  private String registrationAuthority = null;
+    @JsonProperty("activityKindCode")
+    private String activityKindCode = null;
 
-  @JsonProperty("structure")
-  private Structure structure = null;
+    @JsonProperty("registrationAuthority")
+    private String registrationAuthority = null;
 
-  public WorkSituation situId(String situId) {
-    this.situId = situId;
-    return this;
-  }
+    @JsonProperty("structure")
+    private Structure structure = null;
 
-   /**
-   * Get situId
-   * @return situId
-  **/
-  @Schema(description = "")
-  public String getSituId() {
-    return situId;
-  }
-
-  public void setSituId(String situId) {
-    this.situId = situId;
-  }
-
-  public WorkSituation modeCode(String modeCode) {
-    this.modeCode = modeCode;
-    return this;
-  }
-
-   /**
-   * Get modeCode
-   * @return modeCode
-  **/
-  @Schema(description = "")
-  public String getModeCode() {
-    return modeCode;
-  }
-
-  public void setModeCode(String modeCode) {
-    this.modeCode = modeCode;
-  }
-
-  public WorkSituation activitySectorCode(String activitySectorCode) {
-    this.activitySectorCode = activitySectorCode;
-    return this;
-  }
-
-   /**
-   * Get activitySectorCode
-   * @return activitySectorCode
-  **/
-  @Schema(description = "")
-  public String getActivitySectorCode() {
-    return activitySectorCode;
-  }
-
-  public void setActivitySectorCode(String activitySectorCode) {
-    this.activitySectorCode = activitySectorCode;
-  }
-
-  public WorkSituation pharmacistTableSectionCode(String pharmacistTableSectionCode) {
-    this.pharmacistTableSectionCode = pharmacistTableSectionCode;
-    return this;
-  }
-
-   /**
-   * Get pharmacistTableSectionCode
-   * @return pharmacistTableSectionCode
-  **/
-  @Schema(description = "")
-  public String getPharmacistTableSectionCode() {
-    return pharmacistTableSectionCode;
-  }
-
-  public void setPharmacistTableSectionCode(String pharmacistTableSectionCode) {
-    this.pharmacistTableSectionCode = pharmacistTableSectionCode;
-  }
-
-  public WorkSituation roleCode(String roleCode) {
-    this.roleCode = roleCode;
-    return this;
-  }
-
-   /**
-   * Get roleCode
-   * @return roleCode
-  **/
-  @Schema(description = "")
-  public String getRoleCode() {
-    return roleCode;
-  }
-
-  public void setRoleCode(String roleCode) {
-    this.roleCode = roleCode;
-  }
-
-  public WorkSituation registrationAuthority(String registrationAuthority) {
-    this.registrationAuthority = registrationAuthority;
-    return this;
-  }
-
-   /**
-   * Get registrationAuthority
-   * @return registrationAuthority
-  **/
-  @Schema(description = "")
-  public String getRegistrationAuthority() {
-    return registrationAuthority;
-  }
-
-  public void setRegistrationAuthority(String registrationAuthority) {
-    this.registrationAuthority = registrationAuthority;
-  }
-
-  public WorkSituation structure(Structure structure) {
-    this.structure = structure;
-    return this;
-  }
-
-   /**
-   * Get structure
-   * @return structure
-  **/
-  @Schema(description = "")
-  public Structure getStructure() {
-    return structure;
-  }
-
-  public void setStructure(Structure structure) {
-    this.structure = structure;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public WorkSituation situId(String situId) {
+        this.situId = situId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get situId
+     *
+     * @return situId
+     **/
+    @Schema(description = "")
+    public String getSituId() {
+        return situId;
     }
-    WorkSituation workSituation = (WorkSituation) o;
-    return Objects.equals(this.situId, workSituation.situId) &&
-        Objects.equals(this.modeCode, workSituation.modeCode) &&
-        Objects.equals(this.activitySectorCode, workSituation.activitySectorCode) &&
-        Objects.equals(this.pharmacistTableSectionCode, workSituation.pharmacistTableSectionCode) &&
-        Objects.equals(this.roleCode, workSituation.roleCode) &&
-        Objects.equals(this.registrationAuthority, workSituation.registrationAuthority) &&
-        Objects.equals(this.structure, workSituation.structure);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(situId, modeCode, activitySectorCode, pharmacistTableSectionCode, roleCode, registrationAuthority, structure);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class WorkSituation {\n");
-    
-    sb.append("    situId: ").append(toIndentedString(situId)).append("\n");
-    sb.append("    modeCode: ").append(toIndentedString(modeCode)).append("\n");
-    sb.append("    activitySectorCode: ").append(toIndentedString(activitySectorCode)).append("\n");
-    sb.append("    pharmacistTableSectionCode: ").append(toIndentedString(pharmacistTableSectionCode)).append("\n");
-    sb.append("    roleCode: ").append(toIndentedString(roleCode)).append("\n");
-    sb.append("    registrationAuthority: ").append(toIndentedString(registrationAuthority)).append("\n");
-    sb.append("    structure: ").append(toIndentedString(structure)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setSituId(String situId) {
+        this.situId = situId;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public WorkSituation modeCode(String modeCode) {
+        this.modeCode = modeCode;
+        return this;
+    }
+
+    /**
+     * Get modeCode
+     *
+     * @return modeCode
+     **/
+    @Schema(description = "")
+    public String getModeCode() {
+        return modeCode;
+    }
+
+    public void setModeCode(String modeCode) {
+        this.modeCode = modeCode;
+    }
+
+    public WorkSituation activitySectorCode(String activitySectorCode) {
+        this.activitySectorCode = activitySectorCode;
+        return this;
+    }
+
+    /**
+     * Get activitySectorCode
+     *
+     * @return activitySectorCode
+     **/
+    @Schema(description = "")
+    public String getActivitySectorCode() {
+        return activitySectorCode;
+    }
+
+    public void setActivitySectorCode(String activitySectorCode) {
+        this.activitySectorCode = activitySectorCode;
+    }
+
+    public WorkSituation pharmacistTableSectionCode(String pharmacistTableSectionCode) {
+        this.pharmacistTableSectionCode = pharmacistTableSectionCode;
+        return this;
+    }
+
+    /**
+     * Get pharmacistTableSectionCode
+     *
+     * @return pharmacistTableSectionCode
+     **/
+    @Schema(description = "")
+    public String getPharmacistTableSectionCode() {
+        return pharmacistTableSectionCode;
+    }
+
+    public void setPharmacistTableSectionCode(String pharmacistTableSectionCode) {
+        this.pharmacistTableSectionCode = pharmacistTableSectionCode;
+    }
+
+    public WorkSituation roleCode(String roleCode) {
+        this.roleCode = roleCode;
+        return this;
+    }
+
+    /**
+     * Get roleCode
+     *
+     * @return roleCode
+     **/
+    @Schema(description = "")
+    public String getRoleCode() {
+        return roleCode;
+    }
+
+    public void setRoleCode(String roleCode) {
+        this.roleCode = roleCode;
+    }
+
+    public WorkSituation activityKindCode(String activityKindCode) {
+        this.activityKindCode = activityKindCode;
+        return this;
+    }
+
+    /**
+     * Get activityKindCode
+     *
+     * @return activityKindCode
+     **/
+    @Schema(description = "")
+    public String getActivityKindCode() {
+        return activityKindCode;
+    }
+
+    public void setActivityKindCode(String activityKindCode) {
+        this.activityKindCode = activityKindCode;
+    }
+
+    public WorkSituation registrationAuthority(String registrationAuthority) {
+        this.registrationAuthority = registrationAuthority;
+        return this;
+    }
+
+
+    /**
+     * Get registrationAuthority
+     *
+     * @return registrationAuthority
+     **/
+    @Schema(description = "")
+    public String getRegistrationAuthority() {
+        return registrationAuthority;
+    }
+
+    public void setRegistrationAuthority(String registrationAuthority) {
+        this.registrationAuthority = registrationAuthority;
+    }
+
+    public WorkSituation structure(Structure structure) {
+        this.structure = structure;
+        return this;
+    }
+
+    /**
+     * Get structure
+     *
+     * @return structure
+     **/
+    @Schema(description = "")
+    public Structure getStructure() {
+        return structure;
+    }
+
+    public void setStructure(Structure structure) {
+        this.structure = structure;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        WorkSituation workSituation = (WorkSituation) o;
+        return Objects.equals(this.situId, workSituation.situId) &&
+                Objects.equals(this.modeCode, workSituation.modeCode) &&
+                Objects.equals(this.activitySectorCode, workSituation.activitySectorCode) &&
+                Objects.equals(this.pharmacistTableSectionCode, workSituation.pharmacistTableSectionCode) &&
+                Objects.equals(this.roleCode, workSituation.roleCode) &&
+                Objects.equals(this.activityKindCode, workSituation.activityKindCode) &&
+                Objects.equals(this.registrationAuthority, workSituation.registrationAuthority) &&
+                Objects.equals(this.structure, workSituation.structure);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(situId, modeCode, activitySectorCode, pharmacistTableSectionCode, roleCode, registrationAuthority, activityKindCode, structure);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class WorkSituation {\n");
+
+        sb.append("    situId: ").append(toIndentedString(situId)).append("\n");
+        sb.append("    modeCode: ").append(toIndentedString(modeCode)).append("\n");
+        sb.append("    activitySectorCode: ").append(toIndentedString(activitySectorCode)).append("\n");
+        sb.append("    pharmacistTableSectionCode: ").append(toIndentedString(pharmacistTableSectionCode)).append("\n");
+        sb.append("    roleCode: ").append(toIndentedString(roleCode)).append("\n");
+        sb.append("    activityKindCode: ").append(toIndentedString(activityKindCode)).append("\n");
+        sb.append("    registrationAuthority: ").append(toIndentedString(registrationAuthority)).append("\n");
+        sb.append("    structure: ").append(toIndentedString(structure)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
