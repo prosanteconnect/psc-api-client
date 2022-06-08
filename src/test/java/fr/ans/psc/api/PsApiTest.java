@@ -78,7 +78,8 @@ public class PsApiTest {
     @Test
     public void getPsByIdTest() {
         String psId = null;
-        Ps response = api.getPsById(psId);
+        String include = null;
+        Ps response = api.getPsById(psId, include);
 
         // TODO: test validations
     }

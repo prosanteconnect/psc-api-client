@@ -206,7 +206,21 @@ public class PsApi {
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
     public Ps getPsById(String psId) throws RestClientException {
-        return getPsByIdWithHttpInfo(psId).getBody();
+        return getPsByIdWithHttpInfo(psId, null).getBody();
+    }
+
+    /**
+     * Get Ps by id
+     * get a Ps by one of its idNationalRef
+     * <p><b>200</b> - OK
+     * <p><b>400</b> - Bad Request
+     * <p><b>410</b> - Not Found
+     * @param psId  (required)
+     * @return Ps
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public Ps getPsById(String psId, String include) throws RestClientException {
+        return getPsByIdWithHttpInfo(psId, include).getBody();
     }
 
     /**
@@ -219,7 +233,7 @@ public class PsApi {
      * @return ResponseEntity&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Ps> getPsByIdWithHttpInfo(String psId) throws RestClientException {
+    public ResponseEntity<Ps> getPsByIdWithHttpInfo(String psId, String include) throws RestClientException {
         Object postBody = null;
         // verify the required parameter 'psId' is set
         if (psId == null) {
