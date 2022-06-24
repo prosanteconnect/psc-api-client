@@ -16,9 +16,6 @@ import java.util.Objects;
 import java.util.Arrays;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import fr.ans.psc.model.Profession;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.ArrayList;
@@ -43,7 +40,7 @@ public class Ps {
     private String lastName = null;
 
     @JsonProperty("firstName")
-    private String firstName = null;
+    private List<String> firstName = null;
 
     @JsonProperty("dateOfBirth")
     private String dateOfBirth = null;
@@ -72,8 +69,14 @@ public class Ps {
     @JsonProperty("professions")
     private List<Profession> professions = null;
 
-    @JsonProperty("otherIds")
-    private List<String> otherIds = null;
+    @JsonProperty("ids")
+    private List<String> ids = null;
+
+    @JsonProperty("activated")
+    private Long activated = null;
+
+    @JsonProperty("deactivated")
+    private Long deactivated = null;
 
     public Ps idType(String idType) {
         this.idType = idType;
@@ -152,21 +155,20 @@ public class Ps {
     }
 
     public Ps firstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName = Arrays.asList(firstName);
         return this;
     }
 
     /**
      * Get firstName
-     *
      * @return firstName
      **/
     @Schema(description = "")
-    public String getFirstName() {
+    public List<String> getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(List<String> firstName) {
         this.firstName = firstName;
     }
 
@@ -349,15 +351,29 @@ public class Ps {
         this.professions = professions;
     }
 
-    @Schema(description = "")
-    public List<String> getOtherIds() {
-        return otherIds;
+    public List<String> getIds() {
+        return ids;
     }
 
-    public void setOtherIds(List<String> otherIds) {
-        this.otherIds = otherIds;
+    public void setIds(List<String> ids) {
+        this.ids = ids;
     }
 
+    public Long getActivated() {
+        return activated;
+    }
+
+    public void setActivated(Long activated) {
+        this.activated = activated;
+    }
+
+    public Long getDeactivated() {
+        return deactivated;
+    }
+
+    public void setDeactivated(Long deactivated) {
+        this.deactivated = deactivated;
+    }
 
     @Override
     public boolean equals(java.lang.Object o) {
@@ -382,12 +398,14 @@ public class Ps {
                 Objects.equals(this.email, ps.email) &&
                 Objects.equals(this.salutationCode, ps.salutationCode) &&
                 Objects.equals(this.professions, ps.professions) &&
-                Objects.equals(this.otherIds, ps.otherIds);
+                Objects.equals(this.ids, ps.ids) &&
+                Objects.equals(this.activated, ps.activated) &&
+                Objects.equals(this.deactivated, ps.deactivated);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idType, id, nationalId, lastName, firstName, dateOfBirth, birthAddressCode, birthCountryCode, birthAddress, genderCode, phone, email, salutationCode, professions, otherIds);
+        return Objects.hash(idType, id, nationalId, lastName, firstName, dateOfBirth, birthAddressCode, birthCountryCode, birthAddress, genderCode, phone, email, salutationCode, professions, ids, activated, deactivated);
     }
 
 
@@ -410,7 +428,9 @@ public class Ps {
         sb.append("    email: ").append(toIndentedString(email)).append("\n");
         sb.append("    salutationCode: ").append(toIndentedString(salutationCode)).append("\n");
         sb.append("    professions: ").append(toIndentedString(professions)).append("\n");
-        sb.append("    otherIds: ").append(toIndentedString(otherIds)).append("\n");
+        sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
+        sb.append("    activated: ").append(toIndentedString(activated)).append("\n");
+        sb.append("    deactivated: ").append(toIndentedString(deactivated)).append("\n");
         sb.append("}");
         return sb.toString();
     }
