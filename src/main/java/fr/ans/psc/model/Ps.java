@@ -417,7 +417,7 @@ public class Ps {
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    nationalId: ").append(toIndentedString(nationalId)).append("\n");
         sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-        sb.append("    firstNames: ").append(toIndentedString(firstNames)).append("\n");
+        sb.append("    firstNames: ").append(toIndentedString(FirstName.listToString(firstNames))).append("\n");
         sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
         sb.append("    birthAddressCode: ").append(toIndentedString(birthAddressCode)).append("\n");
         sb.append("    birthCountryCode: ").append(toIndentedString(birthCountryCode)).append("\n");
