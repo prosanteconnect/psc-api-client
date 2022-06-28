@@ -13,7 +13,6 @@
 package fr.ans.psc.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -39,8 +38,8 @@ public class Ps {
     @JsonProperty("lastName")
     private String lastName = null;
 
-    @JsonProperty("firstName")
-    private List<String> firstName = null;
+    @JsonProperty("firstNames")
+    private List<FirstName> firstNames = null;
 
     @JsonProperty("dateOfBirth")
     private String dateOfBirth = null;
@@ -154,22 +153,22 @@ public class Ps {
         this.lastName = lastName;
     }
 
-    public Ps firstName(String firstName) {
-        this.firstName = Arrays.asList(firstName);
+    public Ps firstNames(List<FirstName> firstNames) {
+        this.firstNames = firstNames;
         return this;
     }
 
     /**
-     * Get firstName
-     * @return firstName
+     * Get firstNames
+     * @return firstNames
      **/
     @Schema(description = "")
-    public List<String> getFirstName() {
-        return firstName;
+    public List<FirstName> getFirstNames() {
+        return firstNames;
     }
 
-    public void setFirstName(List<String> firstName) {
-        this.firstName = firstName;
+    public void setFirstNames(List<FirstName> firstNames) {
+        this.firstNames = firstNames;
     }
 
     public Ps dateOfBirth(String dateOfBirth) {
@@ -388,7 +387,7 @@ public class Ps {
                 Objects.equals(this.id, ps.id) &&
                 Objects.equals(this.nationalId, ps.nationalId) &&
                 Objects.equals(this.lastName, ps.lastName) &&
-                Objects.equals(this.firstName, ps.firstName) &&
+                Objects.equals(this.firstNames, ps.firstNames) &&
                 Objects.equals(this.dateOfBirth, ps.dateOfBirth) &&
                 Objects.equals(this.birthAddressCode, ps.birthAddressCode) &&
                 Objects.equals(this.birthCountryCode, ps.birthCountryCode) &&
@@ -405,7 +404,7 @@ public class Ps {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idType, id, nationalId, lastName, firstName, dateOfBirth, birthAddressCode, birthCountryCode, birthAddress, genderCode, phone, email, salutationCode, professions, ids, activated, deactivated);
+        return Objects.hash(idType, id, nationalId, lastName, firstNames, dateOfBirth, birthAddressCode, birthCountryCode, birthAddress, genderCode, phone, email, salutationCode, professions, ids, activated, deactivated);
     }
 
 
@@ -418,7 +417,7 @@ public class Ps {
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    nationalId: ").append(toIndentedString(nationalId)).append("\n");
         sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-        sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+        sb.append("    firstNames: ").append(toIndentedString(firstNames)).append("\n");
         sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
         sb.append("    birthAddressCode: ").append(toIndentedString(birthAddressCode)).append("\n");
         sb.append("    birthCountryCode: ").append(toIndentedString(birthCountryCode)).append("\n");
