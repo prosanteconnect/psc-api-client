@@ -16,8 +16,10 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Profession
  */
@@ -53,10 +55,10 @@ public class Profession {
     return this;
   }
 
-   /**
+  /**
    * Get exProId
    * @return exProId
-  **/
+   **/
   @Schema(description = "")
   public String getExProId() {
     return exProId;
@@ -71,10 +73,10 @@ public class Profession {
     return this;
   }
 
-   /**
+  /**
    * Get code
    * @return code
-  **/
+   **/
   @Schema(description = "")
   public String getCode() {
     return code;
@@ -89,10 +91,10 @@ public class Profession {
     return this;
   }
 
-   /**
+  /**
    * Get categoryCode
    * @return categoryCode
-  **/
+   **/
   @Schema(description = "")
   public String getCategoryCode() {
     return categoryCode;
@@ -107,10 +109,10 @@ public class Profession {
     return this;
   }
 
-   /**
+  /**
    * Get salutationCode
    * @return salutationCode
-  **/
+   **/
   @Schema(description = "")
   public String getSalutationCode() {
     return salutationCode;
@@ -125,10 +127,10 @@ public class Profession {
     return this;
   }
 
-   /**
+  /**
    * Get lastName
    * @return lastName
-  **/
+   **/
   @Schema(description = "")
   public String getLastName() {
     return lastName;
@@ -138,15 +140,15 @@ public class Profession {
     this.lastName = lastName;
   }
 
-  public Profession firstNames(FirstName firstNames) {
+  public Profession firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
 
-   /**
-    * Get firstName
-    * @return firstName
-    **/
+  /**
+   * Get firstName
+   * @return firstName
+   **/
   @Schema(description = "")
   public String getFirstName() {
     return firstName;
@@ -169,10 +171,10 @@ public class Profession {
     return this;
   }
 
-   /**
+  /**
    * Get expertises
    * @return expertises
-  **/
+   **/
   @Schema(description = "")
   public List<Expertise> getExpertises() {
     return expertises;
@@ -195,10 +197,10 @@ public class Profession {
     return this;
   }
 
-   /**
+  /**
    * Get workSituations
    * @return workSituations
-  **/
+   **/
   @Schema(description = "")
   public List<WorkSituation> getWorkSituations() {
     return workSituations;
@@ -219,13 +221,13 @@ public class Profession {
     }
     Profession profession = (Profession) o;
     return Objects.equals(this.exProId, profession.exProId) &&
-        Objects.equals(this.code, profession.code) &&
-        Objects.equals(this.categoryCode, profession.categoryCode) &&
-        Objects.equals(this.salutationCode, profession.salutationCode) &&
-        Objects.equals(this.lastName, profession.lastName) &&
-        Objects.equals(this.firstName, profession.firstName) &&
-        Objects.equals(this.expertises, profession.expertises) &&
-        Objects.equals(this.workSituations, profession.workSituations);
+            Objects.equals(this.code, profession.code) &&
+            Objects.equals(this.categoryCode, profession.categoryCode) &&
+            Objects.equals(this.salutationCode, profession.salutationCode) &&
+            Objects.equals(this.lastName, profession.lastName) &&
+            Objects.equals(this.firstName, profession.firstName) &&
+            Objects.equals(this.expertises, profession.expertises) &&
+            Objects.equals(this.workSituations, profession.workSituations);
   }
 
   @Override
@@ -238,7 +240,7 @@ public class Profession {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Profession {\n");
-    
+
     sb.append("    exProId: ").append(toIndentedString(exProId)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    categoryCode: ").append(toIndentedString(categoryCode)).append("\n");
