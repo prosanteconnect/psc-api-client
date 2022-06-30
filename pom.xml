@@ -144,7 +144,7 @@
           <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
           <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
           <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
-          <branch>refs/heads/test-mvn-repo</branch>                       <!-- remote branch name -->
+          <branch>refs/heads/psc-api-test-mvn-repo</branch>                       <!-- remote branch name -->
           <includes><include>**/*</include></includes>
           <repositoryName>psc-api-client</repositoryName>      <!-- github repo name -->
           <repositoryOwner>prosanteconnect</repositoryOwner>    <!-- github username  -->
