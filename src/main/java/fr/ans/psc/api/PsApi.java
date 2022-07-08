@@ -47,6 +47,18 @@ public class PsApi {
     }
 
     /**
+     *  Extract data from ps collection table to extractRass collection
+     *
+     * <p><b>200</b> - Extracted</b></p>
+     * <p><b>400</b> - Bad Request</b></p>
+     * @return List<Ps>
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<Void> extractPsToExtractRass() throws RestClientException {
+        return null;
+    }
+
+    /**
      * Create new Ps
      * Create a new Ps
      * <p><b>201</b> - Created
