@@ -47,11 +47,11 @@ public class PsApi {
     }
 
     /**
-     *  Extract data from ps collection table to extractRass collection
-     *
-     * <p><b>200</b> - Extracted</b></p>
-     * <p><b>400</b> - Bad Request</b></p>
-     * @return List<Ps>
+     * Extract to extractRass
+     * Extract ps entities from ps collection to extractRass collection
+     * <p><b>200</b> - Extracted
+     * <p><b>400</b> - Bad Request
+     * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
     public ResponseEntity<Void> extractPsToExtractRass() throws RestClientException {
