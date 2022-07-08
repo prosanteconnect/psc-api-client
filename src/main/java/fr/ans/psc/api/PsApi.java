@@ -47,7 +47,7 @@ public class PsApi {
     }
 
     /**
-     * Extract ps for export
+     * Extract all ps for export
      * Extract the contents of the ps collection
      * formatted to be further parsed by pscextract
      * <p><b>200</b> - Extracted
@@ -55,8 +55,43 @@ public class PsApi {
      * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Void> extractPsForExport() throws RestClientException {
-        return null;
+    public void extractAllPsForExport() throws RestClientException {
+        extractAllPsForExportWithHttpInfo();
+    }
+
+    /**
+     * Extract all ps for export
+     * Extract the contents of the ps collection
+     * formatted to be further parsed by pscextract
+     * <p><b>200</b> - Extracted
+     * <p><b>400</b> - Bad Request
+     * @return List&lt;Ps&gt;
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    private ResponseEntity<Void> extractAllPsForExportWithHttpInfo() {
+
+        String path = UriComponentsBuilder.fromPath("/v2/ps/export").build().toUriString();
+
+        final HttpHeaders headerParams = new HttpHeaders();
+
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        final String[] accepts = {
+                "application/json"
+        };
+        final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
+
+        final String[] contentTypes = {
+                "application/json"
+        };
+        final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
+
+        String[] authNames = new String[] {  };
+
+        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {};
+
+        return apiClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, formParams, accept, contentType, authNames, returnType);
+
     }
 
     /**
