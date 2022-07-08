@@ -69,7 +69,7 @@ public class PsApi {
      */
     public ResponseEntity<Void> extractAllPsForExportWithHttpInfo() {
 
-        String path = UriComponentsBuilder.fromPath("/v2/ps/export").build().toUriString();
+        String path = UriComponentsBuilder.fromPath("/v2/extract-all-ps-for-export").build().toUriString();
 
         final HttpHeaders headerParams = new HttpHeaders();
 
