@@ -47,14 +47,14 @@ public class PsApi {
     }
 
     /**
-     * Extract to extractRass
-     * Extract ps entities from ps collection to extractRass collection
+     * Export ps to zip
+     * Export ps collection to a text file (formatted to be usable by IN) inside a zip archive
      * <p><b>200</b> - Extracted
      * <p><b>400</b> - Bad Request
      * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Void> extractPsToExtractRass() throws RestClientException {
+    public ResponseEntity<Void> exportPsToZip() throws RestClientException {
         return null;
     }
 
