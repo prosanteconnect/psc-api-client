@@ -68,7 +68,7 @@ public class PsApi {
      * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    private ResponseEntity<Void> extractAllPsForExportWithHttpInfo() {
+    public ResponseEntity<Void> extractAllPsForExportWithHttpInfo() {
 
         String path = UriComponentsBuilder.fromPath("/v2/ps/export").build().toUriString();
 
