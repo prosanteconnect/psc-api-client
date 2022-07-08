@@ -52,7 +52,6 @@ public class PsApi {
      * formatted to be further parsed by pscextract
      * <p><b>200</b> - Extracted
      * <p><b>400</b> - Bad Request
-     * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
     public void extractAllPsForExport() throws RestClientException {
