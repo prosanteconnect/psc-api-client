@@ -54,8 +54,8 @@ public class PsApi {
      * <p><b>400</b> - Bad Request
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public void extractAllPsForExport() throws RestClientException {
-        extractAllPsForExportWithHttpInfo();
+    public void getPsListByPage() throws RestClientException {
+        getPsListByPageWithHttpInfo();
     }
 
     /**
@@ -67,7 +67,7 @@ public class PsApi {
      * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Void> extractAllPsForExportWithHttpInfo() {
+    public ResponseEntity<Void> getPsListByPageWithHttpInfo() {
 
         String path = UriComponentsBuilder.fromPath("/v2/extract-all-ps-for-export").build().toUriString();
 
