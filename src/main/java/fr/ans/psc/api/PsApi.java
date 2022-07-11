@@ -47,15 +47,14 @@ public class PsApi {
     }
 
     /**
-     * Extract all ps for export
-     * Extract the contents of the ps collection
-     * formatted to be further parsed by pscextract
+     * Get List of Ps by page
+     * Get the contents of the specified page from PS collection as a list
      * <p><b>200</b> - Extracted
      * <p><b>400</b> - Bad Request
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public void getPsListByPage() throws RestClientException {
-        getPsListByPageWithHttpInfo();
+    public List<Ps> getPsListByPage(Integer page) throws RestClientException {
+        return getPsListByPageWithHttpInfo(page, null).getBody();
     }
 
     /**
@@ -67,30 +66,34 @@ public class PsApi {
      * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<Void> getPsListByPageWithHttpInfo() {
+    public ResponseEntity<List<Ps>> getPsListByPageWithHttpInfo(Integer page, String include) throws RestClientException{
+        Object postBody = null;
 
-        String path = UriComponentsBuilder.fromPath("/v2/extract-all-ps-for-export").build().toUriString();
+        // verify the required parameter 'page' is set
+        if (page == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'page' when calling getPsListByPage");
+        }
 
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<String, Object>();
+        uriVariables.put("page", page);
+        String path = UriComponentsBuilder.fromPath("/v2/get-ps-list-by-page/{page}").buildAndExpand(uriVariables).toUriString();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
-
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "include", include));
 
-        final String[] accepts = {
-                "application/json"
-        };
+        final String[] accepts = { "application/json" };
+
         final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
-
-        final String[] contentTypes = {
-                "application/json"
-        };
+        final String[] contentTypes = {  };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
-        String[] authNames = new String[] {  };
+        String[] authNames = new String[] { "api_key" };
 
-        ParameterizedTypeReference<Void> returnType = new ParameterizedTypeReference<Void>() {};
-
-        return apiClient.invokeAPI(path, HttpMethod.GET, null, null, headerParams, formParams, accept, contentType, authNames, returnType);
-
+        ParameterizedTypeReference<List<Ps>> returnType = new ParameterizedTypeReference<List<Ps>>() {};
+        return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
 
     /**
