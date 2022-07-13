@@ -91,7 +91,7 @@ public class PsApi {
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
         String[] authNames = new String[] {  };
-
+        System.out.println("authNames: " + authNames);
         ParameterizedTypeReference<List<Ps>> returnType = new ParameterizedTypeReference<List<Ps>>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
