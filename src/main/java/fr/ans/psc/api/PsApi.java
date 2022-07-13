@@ -68,21 +68,26 @@ public class PsApi {
      */
     public ResponseEntity<List<Ps>> getPsListByPageWithHttpInfo(Integer page, String include) throws RestClientException{
         Object postBody = null;
+        System.out.println("postBody created");
 
         // verify the required parameter 'page' is set
         if (page == null) {
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'page' when calling getPsListByPage");
         }
+        System.out.println("Null check passed");
 
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("page", page);
         String path = UriComponentsBuilder.fromPath("/v2/ps?").buildAndExpand(uriVariables).toUriString();
+        System.out.println("path created");
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "include", include));
+        System.out.println("queryParams set");
+        System.out.println(queryParams);
 
         final String[] accepts = { "application/json" };
 
