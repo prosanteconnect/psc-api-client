@@ -77,7 +77,7 @@ public class PsApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("page", page);
-        String path = UriComponentsBuilder.fromPath("/v2/ps").query("page={keyword}").buildAndExpand(page).toUriString();
+        String path = UriComponentsBuilder.fromPath("/v2/ps").queryParam("page",page).buildAndExpand(page).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
