@@ -231,9 +231,13 @@ public class PsApi {
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'psId' when calling forceDeletePsById");
         }
         // create path and map variables
+//        final Map<String, Object> uriVariables = new HashMap<String, Object>();
+//        uriVariables.put("psId", psId);
+//        String path = UriComponentsBuilder.fromPath("/v2/ps/force/{psId}").buildAndExpand(uriVariables).toUriString();
+
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("psId", psId);
-        String path = UriComponentsBuilder.fromPath("/v2/ps/force/{psId}").buildAndExpand(uriVariables).toUriString();
+        String path = UriComponentsBuilder.fromPath("/v2/ps/{psId}").buildAndExpand(uriVariables).toUriString();
         
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
