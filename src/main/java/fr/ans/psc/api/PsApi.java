@@ -70,36 +70,37 @@ public class PsApi {
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
     public ResponseEntity<List<Ps>> getPsListByPageWithHttpInfo(Integer page, String include) throws RestClientException{
-        Object postBody = null;
-
-        // verify the required parameter 'page' is set
-        if (page == null) {
-            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'page' when calling getPsListByPage");
-        }
-
-        // create path and map variables
-        final Map<String, Object> uriVariables = new HashMap<String, Object>();
-        uriVariables.put("page", page);
-        String path = UriComponentsBuilder.fromPath("/v2/ps").queryParam("page",page).build().toUriString();
-
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
-        final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
-        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "include", include));
-
-        final String[] accepts = {
-                "application/json"
-        };
-        final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
-
-        final String[] contentTypes = {  };
-        final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
-
-        String[] authNames = new String[] {  };
-        ParameterizedTypeReference<List<Ps>> returnType = new ParameterizedTypeReference<List<Ps>>() {};
-        return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
-
+//        Object postBody = null;
+//
+//        // verify the required parameter 'page' is set
+//        if (page == null) {
+//            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'page' when calling getPsListByPage");
+//        }
+//
+//        // create path and map variables
+//        final Map<String, Object> uriVariables = new HashMap<String, Object>();
+//        uriVariables.put("page", page);
+//        String path = UriComponentsBuilder.fromPath("/v2/ps").queryParam("page",page).build().toUriString();
+//
+//
+//        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+//        final HttpHeaders headerParams = new HttpHeaders();
+//        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+//        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "include", include));
+//
+//        final String[] accepts = {
+//                "application/json"
+//        };
+//        final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
+//
+//        final String[] contentTypes = {  };
+//        final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
+//
+//        String[] authNames = new String[] {  };
+//        ParameterizedTypeReference<List<Ps>> returnType = new ParameterizedTypeReference<List<Ps>>() {};
+//        return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
+        List<Ps> result = new ArrayList<Ps>();
+        return ResponseEntity.ok().body(result);
     }
 
     /**
@@ -132,18 +133,18 @@ public class PsApi {
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'body' when calling createNewPs");
         }
         String path = UriComponentsBuilder.fromPath("/v2/ps").build().toUriString();
-        
+
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
 
-        final String[] accepts = { 
-            "application/json"
-         };
+        final String[] accepts = {
+                "application/json"
+        };
         final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
-        final String[] contentTypes = { 
-            "application/json"
-         };
+        final String[] contentTypes = {
+                "application/json"
+        };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
         String[] authNames = new String[] {  };
@@ -184,14 +185,14 @@ public class PsApi {
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("psId", psId);
         String path = UriComponentsBuilder.fromPath("/v2/ps/{psId}").buildAndExpand(uriVariables).toUriString();
-        
+
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
 
-        final String[] accepts = { 
-            "application/json"
-         };
+        final String[] accepts = {
+                "application/json"
+        };
         final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
         final String[] contentTypes = {  };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
@@ -234,14 +235,14 @@ public class PsApi {
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("psId", psId);
         String path = UriComponentsBuilder.fromPath("/v2/ps/force/{psId}").buildAndExpand(uriVariables).toUriString();
-        
+
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
 
-        final String[] accepts = { 
-            "application/json"
-         };
+        final String[] accepts = {
+                "application/json"
+        };
         final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
         final String[] contentTypes = {  };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
@@ -299,14 +300,14 @@ public class PsApi {
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("psId", psId);
         String path = UriComponentsBuilder.fromPath("/v2/ps/{psId}").buildAndExpand(uriVariables).toUriString();
-        
+
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "include", include));
 
-        final String[] accepts = { 
-            "application/json"
+        final String[] accepts = {
+                "application/json"
         };
         final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
 
@@ -348,18 +349,18 @@ public class PsApi {
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'body' when calling updatePs");
         }
         String path = UriComponentsBuilder.fromPath("/v2/ps").build().toUriString();
-        
+
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
 
-        final String[] accepts = { 
-            "application/json"
-         };
+        final String[] accepts = {
+                "application/json"
+        };
         final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
-        final String[] contentTypes = { 
-            "application/json"
-         };
+        final String[] contentTypes = {
+                "application/json"
+        };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
         String[] authNames = new String[] {  };
