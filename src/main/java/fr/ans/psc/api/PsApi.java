@@ -51,6 +51,8 @@ public class PsApi {
      * Get the contents of the specified page from PS collection as a list
      * <p><b>200</b> - Extracted
      * <p><b>400</b> - Bad Request
+     * @param page (required)
+     * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
     public List<Ps> getPsListByPage(Integer page) throws RestClientException {
@@ -63,6 +65,7 @@ public class PsApi {
      * formatted to be further parsed by pscextract
      * <p><b>200</b> - Extracted
      * <p><b>400</b> - Bad Request
+     * @param page (required)
      * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
@@ -77,7 +80,7 @@ public class PsApi {
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
         uriVariables.put("page", page);
-        String path = UriComponentsBuilder.fromPath("/v2/ps").queryParam("page",page).build().toUriString();
+        String path = UriComponentsBuilder.fromPath("/v2/ps/{psId}").build().toUriString();
 
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
@@ -85,7 +88,9 @@ public class PsApi {
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "include", include));
 
-        final String[] accepts = { "application/json" };
+        final String[] accepts = {
+                "application/json"
+        };
         final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
 
         final String[] contentTypes = {  };
@@ -302,8 +307,9 @@ public class PsApi {
 
         final String[] accepts = { 
             "application/json"
-         };
+        };
         final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
+
         final String[] contentTypes = {  };
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
