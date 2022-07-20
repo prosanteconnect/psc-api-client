@@ -55,7 +55,7 @@ public class PsApi {
      * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public List<Ps> getPsListByPage(Integer page) throws RestClientException {
+    public Ps getPsListByPage(Integer page) throws RestClientException {
         return getPsListByPageWithHttpInfo(page, null).getBody();
     }
 
@@ -69,19 +69,16 @@ public class PsApi {
      * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<List<Ps>> getPsListByPageWithHttpInfo(Integer page, String include) throws RestClientException{
+    public ResponseEntity<Ps> getPsListByPageWithHttpInfo(Integer page, String include) throws RestClientException{
         Object postBody = null;
-
-        // verify the required parameter 'page' is set
+        // verify the required parameter 'psId' is set
         if (page == null) {
-            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'page' when calling getPsListByPage");
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'psId' when calling getPsById");
         }
-
         // create path and map variables
         final Map<String, Object> uriVariables = new HashMap<String, Object>();
-        uriVariables.put("page", page);
-        String path = UriComponentsBuilder.fromPath("/v2/ps/{psId}").build().toUriString();
-
+        uriVariables.put("psId", page);
+        String path = UriComponentsBuilder.fromPath("/v2/ps/{psId}").buildAndExpand(uriVariables).toUriString();
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
@@ -97,9 +94,9 @@ public class PsApi {
         final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
 
         String[] authNames = new String[] {  };
-        ParameterizedTypeReference<List<Ps>> returnType = new ParameterizedTypeReference<List<Ps>>() {};
-        return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
 
+        ParameterizedTypeReference<Ps> returnType = new ParameterizedTypeReference<Ps>() {};
+        return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
 
     /**
