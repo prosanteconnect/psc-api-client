@@ -73,14 +73,12 @@ public class PsApi {
         if (page == null) {
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'page' when calling getPsListByPage");
         }
-//
-//        // create path and map variables
-//        final Map<String, Object> uriVariables = new HashMap<String, Object>();
-//        uriVariables.put("page", page);
-//        String path = UriComponentsBuilder.fromPath("/v2/ps").queryParam("page",page).build().toUriString();
-//
 
-        String path = "/v2/ps?page=1";
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<String, Object>();
+        uriVariables.put("page", page);
+        String path = UriComponentsBuilder.fromPath("/v2/ps").queryParam("page",page).build().toUriString();
+
 
         final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
         final HttpHeaders headerParams = new HttpHeaders();
