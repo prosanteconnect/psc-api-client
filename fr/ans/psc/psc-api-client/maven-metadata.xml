@@ -3,10 +3,10 @@
   <groupId>fr.ans.psc</groupId>
   <artifactId>psc-api-client</artifactId>
   <versioning>
-    <release>2.2.10</release>
+    <release>2.2.11</release>
     <versions>
-      <version>2.2.10</version>
+      <version>2.2.11</version>
     </versions>
-    <lastUpdated>20220720135801</lastUpdated>
+    <lastUpdated>20220720140118</lastUpdated>
   </versioning>
 </metadata>
