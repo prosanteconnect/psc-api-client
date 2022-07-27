@@ -2,9 +2,10 @@ package fr.ans.psc.api;
 
 import fr.ans.psc.ApiClient;
 
+import fr.ans.psc.model.Error;
 import fr.ans.psc.model.Ps;
 
-import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -42,6 +44,61 @@ public class PsApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    /**
+     * Get List of Ps by page
+     * Get the contents of the specified page from PS collection as a list
+     * <p><b>200</b> - Extracted
+     * <p><b>400</b> - Bad Request
+     * @param page (required)
+     * @return List&lt;Ps&gt;
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public List<Ps> getPsListByPage(Integer page) throws RestClientException {
+        return getPsListByPageWithHttpInfo(page, null).getBody();
+    }
+
+    /**
+     * Extract all ps for export
+     * Extract the contents of the ps collection
+     * formatted to be further parsed by pscextract
+     * <p><b>200</b> - Extracted
+     * <p><b>400</b> - Bad Request
+     * @param page (required)
+     * @return List&lt;Ps&gt;
+     * @throws RestClientException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<List<Ps>> getPsListByPageWithHttpInfo(Integer page, String include) throws RestClientException{
+        Object postBody = null;
+
+        // verify the required parameter 'page' is set
+        if (page == null) {
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'page' when calling getPsListByPage");
+        }
+
+        // create path and map variables
+        final Map<String, Object> uriVariables = new HashMap<String, Object>();
+        uriVariables.put("page", page);
+        String path = UriComponentsBuilder.fromPath("/v2/ps").queryParam("page",page).build().toUriString();
+
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "include", include));
+
+        final String[] accepts = {
+                "application/json"
+        };
+        final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
+
+        final String[] contentTypes = {  };
+        final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
+
+        String[] authNames = new String[] {  };
+        ParameterizedTypeReference<List<Ps>> returnType = new ParameterizedTypeReference<List<Ps>>() {};
+        return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
 
     /**
@@ -260,59 +317,6 @@ public class PsApi {
         ParameterizedTypeReference<Ps> returnType = new ParameterizedTypeReference<Ps>() {};
         return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     }
-
-    /**
-     * Get a list of Ps by page
-     * Retrieve the information of all the Ps on the specified page.
-     * <p><b>200</b> - Ps page found
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Ps page not Found
-     * <p><b>410</b> - Gone
-     * @param page  (required)
-     * @return List&lt;Ps&gt;
-     * @throws RestClientException if an error occurs while attempting to invoke the API
-     */
-    public List<Ps> getPsByPage(BigDecimal page) throws RestClientException {
-        return getPsByPageWithHttpInfo(page).getBody();
-    }
-
-    /**
-     * Get a list of Ps by page
-     * Retrieve the information of all the Ps on the specified page.
-     * <p><b>200</b> - Ps page found
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Ps page not Found
-     * <p><b>410</b> - Gone
-     * @param page  (required)
-     * @return ResponseEntity&lt;List&lt;Ps&gt;&gt;
-     * @throws RestClientException if an error occurs while attempting to invoke the API
-     */
-    public ResponseEntity<List<Ps>> getPsByPageWithHttpInfo(BigDecimal page) throws RestClientException {
-        Object postBody = null;
-        // verify the required parameter 'page' is set
-        if (page == null) {
-            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Missing the required parameter 'page' when calling getPsByPage");
-        }
-        String path = UriComponentsBuilder.fromPath("/v2/ps").build().toUriString();
-
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
-        final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
-        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "page", page));
-
-        final String[] accepts = {
-                "application/json"
-        };
-        final List<MediaType> accept = apiClient.selectHeaderAccept(accepts);
-        final String[] contentTypes = {  };
-        final MediaType contentType = apiClient.selectHeaderContentType(contentTypes);
-
-        String[] authNames = new String[] {  };
-
-        ParameterizedTypeReference<List<Ps>> returnType = new ParameterizedTypeReference<List<Ps>>() {};
-        return apiClient.invokeAPI(path, HttpMethod.GET, queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
-    }
-
     /**
      * Update Ps
      * Update Ps
