@@ -269,11 +269,12 @@ public class PsApi {
      * <p><b>404</b> - Ps page not Found
      * <p><b>410</b> - Gone
      * @param page  (required)
+     * @param size  (optional)
      * @return List&lt;Ps&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public List<Ps> getPsByPage(BigDecimal page) throws RestClientException {
-        return getPsByPageWithHttpInfo(page).getBody();
+    public List<Ps> getPsByPage(BigDecimal page, BigDecimal size) throws RestClientException {
+        return getPsByPageWithHttpInfo(page, size).getBody();
     }
 
     /**
@@ -284,10 +285,11 @@ public class PsApi {
      * <p><b>404</b> - Ps page not Found
      * <p><b>410</b> - Gone
      * @param page  (required)
+     * @param size  (optional)
      * @return ResponseEntity&lt;List&lt;Ps&gt;&gt;
      * @throws RestClientException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<List<Ps>> getPsByPageWithHttpInfo(BigDecimal page) throws RestClientException {
+    public ResponseEntity<List<Ps>> getPsByPageWithHttpInfo(BigDecimal page, BigDecimal size) throws RestClientException {
         Object postBody = null;
         // verify the required parameter 'page' is set
         if (page == null) {
@@ -299,6 +301,7 @@ public class PsApi {
         final HttpHeaders headerParams = new HttpHeaders();
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "page", page));
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "size", size));
 
         final String[] accepts = {
                 "application/json"
