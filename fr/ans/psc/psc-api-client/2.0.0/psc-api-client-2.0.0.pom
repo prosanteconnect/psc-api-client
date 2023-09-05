@@ -5,7 +5,7 @@
   <artifactId>psc-api-client</artifactId>
   <packaging>jar</packaging>
   <name>psc-api-client</name>
-  <version>2.2.22</version>
+  <version>2.0.0</version>
 
   <prerequisites>
     <maven>2.2.0</maven>
@@ -144,7 +144,7 @@
           <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
           <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
           <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
-          <branch>refs/heads/psc-api-test-mvn-repo</branch>                       <!-- remote branch name -->
+          <branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
           <includes><include>**/*</include></includes>
           <repositoryName>psc-api-client</repositoryName>      <!-- github repo name -->
           <repositoryOwner>prosanteconnect</repositoryOwner>    <!-- github username  -->
@@ -165,9 +165,9 @@
 
   <distributionManagement>
     <repository>
-      <id>github</id>
-      <name>Github prosanteconnect Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/prosanteconnect/psc-ecosystem-components</url>
+      <id>internal.repo</id>
+      <name>Temporary Staging Repository</name>
+      <url>file://${project.build.directory}/mvn-repo</url>
     </repository>
   </distributionManagement>
 
